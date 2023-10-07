@@ -6,6 +6,9 @@ package mx.itson.olympia.ui;
 
 
 
+import java.awt.event.ItemListener;
+import mx.itson.olympia.negocio.Negocio;
+import static mx.itson.olympia.negocio.Negocio.entidades;
 import static mx.itson.olympia.negocio.Negocio.obtenerPrimeraVocalInterna;
 
 
@@ -96,9 +99,9 @@ public class OlympiaApp extends javax.swing.JFrame {
             }
         });
 
-        sexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        sexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "H", "M" }));
 
-        entidadNacimiento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        entidadNacimiento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Aguascalientes", "Baja California", "Baja California Sur", "Campeche", "Coahuila de Zaragoza", "Colima", "Chiapas", "Chihuahua", "Ciudad de México", "Durango", "Guanajuato", "Guerrero", "Hidalgo", "Jalisco", "México", "Michoacán de Ocampo", "Morelos", "Nayarit", "Nuevo León", "Oaxaca", "Puebla", "Querétaro", "Quintana Roo", "San Luis Potosí", "Sinaloa", "Sonora", "Tabasco", "Tamaulipas", "Tlaxcala", "Veracruz de Ignacio de la Llave", "Yucatán", "Zacatecas", "Nacido en el Extranjero" }));
 
         jLabel1.setText("Primer apellido:");
 
@@ -180,7 +183,7 @@ public class OlympiaApp extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(219, 219, 219)
                         .addComponent(curpGenerada)))
-                .addContainerGap(53, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -275,12 +278,19 @@ public class OlympiaApp extends javax.swing.JFrame {
     private void generarCurpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generarCurpActionPerformed
         // TODO add your handling code here:
         //Creamos las variables
+        
+        
+        
        String textoprimerApellido = primerApellido.getText();
        String textosegundoApellido = segundoApellido.getText();
        String textoNombre = nombres.getText();
+       String estados = entidadNacimiento.getSelectedItem().toString();
+       String sex = sexo.getSelectedItem().toString();
        String diaNacimiento = dia.getText();
        String mesNacimiento = mes.getText();
        String anioNacimiento = anio.getText();
+       
+       String claveEntidad = entidades(estados);
      
        // Primera letra del primer apellido        
        char primeraLetraApellido1 = textoprimerApellido.isEmpty() ? '\0' : textoprimerApellido.charAt(0);
@@ -298,7 +308,7 @@ public class OlympiaApp extends javax.swing.JFrame {
        String curp = String.valueOf(primeraLetraApellido1)
                + String.valueOf(primeraVocalApellido1) 
                + String.valueOf(primeraLetraApellido2)
-               + String.valueOf(primeraLetraNombre)+ anioNacimiento.substring(2) +  mesNacimiento + diaNacimiento;
+               + String.valueOf(primeraLetraNombre)+ anioNacimiento.substring(2) +  mesNacimiento + diaNacimiento + claveEntidad + sex + estados;
       
        curpGenerada.setText(curp.toUpperCase());
     
