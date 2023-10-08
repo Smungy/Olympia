@@ -5,6 +5,7 @@
 
 package mx.itson.olympia.negocio;
 
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -19,9 +20,11 @@ p
     */
 public class Negocio {
     
+    
+    
     //Define la función llamada obtenerPrimeraVocalInterna, toma una cadena de String como entrada y devuelve un char.
     public static char obtenerPrimeraVocalInterna(String cadena) {
-    //Se crea un objeto Pattern llamado vocal, la expresión regular AEIOUaeiou se utiliza para buscar cualquier vocal en la cadena.
+    //Se crea un objeto Pattern llamado vocal, la expresión regular "AEIOUaeiou se utiliza para buscar cualquier vocal en la cadena.
     Pattern vocal = Pattern.compile("[AEIOUaeiou]");
     //Se llama al método matcher en el Pattern creado anteriormente, y se le proporciona una subcadena de cadena. La subcadena se obtiene eliminando el primer y último carácter de cadena. 
     //Esto se hace para buscar en la parte interna de la cadena y omitir el primer y último carácter.
@@ -43,6 +46,7 @@ public class Negocio {
     if (m.find()) {
         return m.group().charAt(0);
       }
+    // De lo contrario, si la condicion es falsa, regresara una "X"
     return 'X'; 
    }
 }

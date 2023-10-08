@@ -7,8 +7,10 @@ package mx.itson.olympia.ui;
 
 
 import java.awt.event.ItemListener;
+import java.util.ArrayList;
+import java.util.List;
 import mx.itson.olympia.negocio.Negocio;
-import static mx.itson.olympia.negocio.Negocio.entidades;
+
 import static mx.itson.olympia.negocio.Negocio.obtenerPrimeraVocalInterna;
 
 
@@ -279,6 +281,40 @@ public class OlympiaApp extends javax.swing.JFrame {
         // TODO add your handling code here:
         //Creamos las variables
         
+       List<String> clave = new ArrayList<>();
+    clave.add("AS");
+    clave.add("BC");
+    clave.add("BS");
+    clave.add("CC");
+    clave.add("CL");
+    clave.add("CM");
+    clave.add("CS");
+    clave.add("CH");
+    clave.add("DF");
+    clave.add("DG");
+    clave.add("GT");
+    clave.add("GR");
+    clave.add("HG");
+    clave.add("JC");
+    clave.add("MC");
+    clave.add("MN");
+    clave.add("MS");
+    clave.add("NT");
+    clave.add("NL");
+    clave.add("OC");
+    clave.add("PL");
+    clave.add("QT");
+    clave.add("QR");
+    clave.add("SP");
+    clave.add("SL");
+    clave.add("SR");
+    clave.add("TC");
+    clave.add("TS");
+    clave.add("TL");
+    clave.add("VZ");
+    clave.add("YN");
+    clave.add("ZS");
+    clave.add("Nacido en el Extranjer");
         
         
        String textoprimerApellido = primerApellido.getText();
@@ -289,8 +325,9 @@ public class OlympiaApp extends javax.swing.JFrame {
        String diaNacimiento = dia.getText();
        String mesNacimiento = mes.getText();
        String anioNacimiento = anio.getText();
+       String claves = clave.get(entidadNacimiento.getSelectedIndex());
        
-       String claveEntidad = entidades(estados);
+       
      
        // Primera letra del primer apellido        
        char primeraLetraApellido1 = textoprimerApellido.isEmpty() ? '\0' : textoprimerApellido.charAt(0);
@@ -308,7 +345,7 @@ public class OlympiaApp extends javax.swing.JFrame {
        String curp = String.valueOf(primeraLetraApellido1)
                + String.valueOf(primeraVocalApellido1) 
                + String.valueOf(primeraLetraApellido2)
-               + String.valueOf(primeraLetraNombre)+ anioNacimiento.substring(2) +  mesNacimiento + diaNacimiento + claveEntidad + sex + estados;
+               + String.valueOf(primeraLetraNombre)+ anioNacimiento.substring(2) +  mesNacimiento + diaNacimiento  + sex + claves;
       
        curpGenerada.setText(curp.toUpperCase());
     
