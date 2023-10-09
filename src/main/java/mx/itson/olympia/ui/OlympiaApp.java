@@ -6,14 +6,14 @@ package mx.itson.olympia.ui;
 
 
 
+import java.util.ArrayList;
+import java.util.List;
+import mx.itson.olympia.negocio.Negocio;
 import static mx.itson.olympia.negocio.Negocio.obtenerPrimeraVocalInterna;
-
-
-
 
 /**
  *
- * @author Jesus Alan
+ * @author Antonio Alatorre
  */
 public class OlympiaApp extends javax.swing.JFrame {
 
@@ -96,9 +96,9 @@ public class OlympiaApp extends javax.swing.JFrame {
             }
         });
 
-        sexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        sexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "H", "M" }));
 
-        entidadNacimiento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        entidadNacimiento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Aguascalientes", "Baja California", "Baja California Sur", "Campeche", "Coahuila de Zaragoza", "Colima", "Chiapas", "Chihuahua", "Ciudad de México", "Durango", "Guanajuato", "Guerrero", "Hidalgo", "Jalisco", "México", "Michoacán de Ocampo", "Morelos", "Nayarit", "Nuevo León", "Oaxaca", "Puebla", "Querétaro", "Quintana Roo", "San Luis Potosí", "Sinaloa", "Sonora", "Tabasco", "Tamaulipas", "Tlaxcala", "Veracruz de Ignacio de la Llave", "Yucatán", "Zacatecas", "Nacido en el Extranjero" }));
 
         jLabel1.setText("Primer apellido:");
 
@@ -162,25 +162,26 @@ public class OlympiaApp extends javax.swing.JFrame {
                                     .addComponent(segundoApellido, javax.swing.GroupLayout.Alignment.LEADING))))
                         .addGap(105, 105, 105)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(jLabel6))
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jLabel5)
                                         .addComponent(jLabel4))
                                     .addGap(12, 12, 12))
-                                .addComponent(sexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(entidadNacimiento, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(nombres, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(sexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(nombres, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(entidadNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel6)))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(199, 199, 199)
                         .addComponent(generarCurp))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(219, 219, 219)
+                        .addGap(210, 210, 210)
                         .addComponent(curpGenerada)))
-                .addContainerGap(53, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -207,14 +208,12 @@ public class OlympiaApp extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(jLabel6))
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel11)
-                        .addGap(6, 6, 6)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel8)
-                            .addComponent(entidadNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(9, 9, 9)
+                        .addComponent(jLabel8)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(dia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -225,13 +224,14 @@ public class OlympiaApp extends javax.swing.JFrame {
                         .addComponent(jLabel10)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(anio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(63, 63, 63))
+                        .addGap(54, 54, 54))
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(entidadNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(generarCurp)
-                        .addGap(27, 27, 27)))
+                        .addComponent(generarCurp)))
+                .addGap(18, 18, 18)
                 .addComponent(curpGenerada)
-                .addGap(118, 118, 118))
+                .addGap(127, 127, 127))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -274,13 +274,54 @@ public class OlympiaApp extends javax.swing.JFrame {
 
     private void generarCurpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generarCurpActionPerformed
         // TODO add your handling code here:
-        //Creamos las variables
+        List<String> clave = new ArrayList<>();
+    clave.add("AS");
+    clave.add("BC");
+    clave.add("BS");
+    clave.add("CC");
+    clave.add("CL");
+    clave.add("CM");
+    clave.add("CS");
+    clave.add("CH");
+    clave.add("DF");
+    clave.add("DG");
+    clave.add("GT");
+    clave.add("GR");
+    clave.add("HG");
+    clave.add("JC");
+    clave.add("MC");
+    clave.add("MN");
+    clave.add("MS");
+    clave.add("NT");
+    clave.add("NL");
+    clave.add("OC");
+    clave.add("PL");
+    clave.add("QT");
+    clave.add("QR");
+    clave.add("SP");
+    clave.add("SL");
+    clave.add("SR");
+    clave.add("TC");
+    clave.add("TS");
+    clave.add("TL");
+    clave.add("VZ");
+    clave.add("YN");
+    clave.add("ZS");
+    clave.add("Nacido en el Extranjer");
+        
+    
+        
        String textoprimerApellido = primerApellido.getText();
        String textosegundoApellido = segundoApellido.getText();
        String textoNombre = nombres.getText();
+       String estados = entidadNacimiento.getSelectedItem().toString();
+       String sex = sexo.getSelectedItem().toString();
        String diaNacimiento = dia.getText();
        String mesNacimiento = mes.getText();
        String anioNacimiento = anio.getText();
+       String claves = clave.get(entidadNacimiento.getSelectedIndex());
+       
+       
      
        // Primera letra del primer apellido        
        char primeraLetraApellido1 = textoprimerApellido.isEmpty() ? '\0' : textoprimerApellido.charAt(0);
@@ -291,14 +332,38 @@ public class OlympiaApp extends javax.swing.JFrame {
        // Primera letra del segundo apellido o X si no tiene segundo apellido
        char primeraLetraApellido2 = (textosegundoApellido.isEmpty()) ? 'X' : textosegundoApellido.charAt(0);
        
-       // Primera letra del nombre pila. (falta condición para José y María)
-       char primeraLetraNombre = textoNombre.isEmpty() ? '\0' :textoNombre.charAt(0);
+       // Primera letra del nombre pila. (y condición para José y María)
+       char obtenerPrimeraLetraNombre = Negocio.obtenerPrimeraLetraNombre(textoNombre);
+       
+       // Primera consonante interna del primer apellido
+       char primeraConsonanteApellido1 = Negocio.obtenerPrimeraConsonanteInterna(textoprimerApellido);
+       
+       // Primera consonante interna del segundo apellido, en caso de no tener se pondra un 'X'
+       char primeraConsonanteApellido2 = (textosegundoApellido.isEmpty()) ? 'X' : Negocio.obtenerPrimeraConsonanteInterna(textosegundoApellido);
+       
+       // Primera consonante interna del nombre de pila
+       char primeraConsonanteNombre = Negocio.obtenerPrimeraConsonanteInterna(textoNombre);
+    
+       // obtenemos el texto del text field de año
+       String txtAnio = anio.getText();
+       //convertimos el String en int, integrandolo con un parse
+       int datoFecha = Integer.parseInt(txtAnio);
+       //mandamos a llamar al metodo obtenerDigitoFecha de la clase Negocio, para hacer la condicion 
+       char obtenerDigitoFecha = Negocio.obtenerDigitoFecha(datoFecha);
        
       //Gener curp
        String curp = String.valueOf(primeraLetraApellido1)
                + String.valueOf(primeraVocalApellido1) 
                + String.valueOf(primeraLetraApellido2)
-               + String.valueOf(primeraLetraNombre)+ anioNacimiento.substring(2) +  mesNacimiento + diaNacimiento;
+               +String.valueOf(obtenerPrimeraLetraNombre)
+               + anioNacimiento.substring(2) +  mesNacimiento + diaNacimiento  
+               + sex 
+               + claves
+               +primeraConsonanteApellido1
+               +primeraConsonanteApellido2
+               +primeraConsonanteNombre
+               +obtenerDigitoFecha
+               +"1";
       
        curpGenerada.setText(curp.toUpperCase());
     
