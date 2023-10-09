@@ -22,12 +22,13 @@ p
     */
 public class Negocio {
     
+    
+    
     //Define la función llamada obtenerPrimeraVocalInterna, toma una cadena de String como entrada y devuelve un char.
     public static char obtenerPrimeraVocalInterna(String cadena) {
-    //Se crea un objeto Pattern llamado vocal, la expresión regular AEIOUaeiou se utiliza para buscar cualquier vocal en la cadena.
-    Pattern vocal = Pattern.compile("[AEIOUaeiouáéíóú]");
-    //Se llama al método matcher en el Pattern creado anteriormente, y se le proporciona una subcadena de cadena. 
-    //La subcadena se obtiene eliminando el primer y último carácter de cadena. 
+    //Se crea un objeto Pattern llamado vocal, la expresión regular "AEIOUaeiou se utiliza para buscar cualquier vocal en la cadena.
+    Pattern vocal = Pattern.compile("[AEIOUaeiou]");
+    //Se llama al método matcher en el Pattern creado anteriormente, y se le proporciona una subcadena de cadena. La subcadena se obtiene eliminando el primer y último carácter de cadena. 
     //Esto se hace para buscar en la parte interna de la cadena y omitir el primer y último carácter.
     Matcher m = vocal.matcher(cadena.substring(1, cadena.length() - 1));
      //Busca la primera coincidencia de la expresión regular en la subcadena. Si se encuentra una vocal interna, esta condición será verdadera
@@ -49,6 +50,7 @@ public class Negocio {
     if (m.find()) {
         return m.group().charAt(0);
       }
+    // De lo contrario, si la condicion es falsa, regresara una "X"
     return 'X'; 
     
      } 

@@ -9,11 +9,10 @@ import java.util.List;
 
 /**
  *
- * @author asterium
+ * @author Antonio Alatorre
  */
 class ClaveEntidad {
-    public static void entidades(String[] args) {
-        //Lista de todas las claves de entidad de Mexico
+    public static void main(String[] args) {
         List<String> clave = new ArrayList<>();
         
     clave.add("AS");
@@ -47,9 +46,14 @@ class ClaveEntidad {
     clave.add("VZ");
     clave.add("YN");
     clave.add("ZS");
-    clave.add("Nacido en el Extranjero");
+    clave.add("Nacido en el Extranjer");
         
         
     }
-     
+    
+    
+    
+    
+    
+    
 }

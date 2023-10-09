@@ -11,9 +11,12 @@ import java.util.List;
 import mx.itson.olympia.negocio.Negocio;
 import static mx.itson.olympia.negocio.Negocio.obtenerPrimeraVocalInterna;
 
+
+
+
 /**
  *
- * @author Antonio Alatorre
+ * @author Jesus Alan
  */
 public class OlympiaApp extends javax.swing.JFrame {
 
